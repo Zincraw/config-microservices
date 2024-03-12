@@ -1,0 +1,18 @@
+server:
+  port: 8081
+spring:
+  cloud: 
+   gateway: 
+    routes:
+      - id: pokemon
+        uri: lb://pokemon/
+        predicates:
+          - Path=/pokedex/**
+      - id: playerPC
+        uri: lb://playerPC/
+        predicates:
+          - Path=/playerPC/**
+      - id: playerPC_CB
+        uri: lb://playerPC_CB/
+        predicates:
+          - Path=/playerPC_CB/**          
